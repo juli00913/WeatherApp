@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.slavchev.yahooweather.data.viewModel.ForecastViewModel"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".MainActivity"
+        android:orientation="vertical"
+        tools:showIn="@layout/activity_main"
+        android:background="#111"
+        android:gravity="top|center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_cloud_40dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.temp}"
+            android:textColor="#fff"
+            android:layout_marginTop="30dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="@{viewModel.description}"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="@{viewModel.weatherLocation}"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.date}"
+            android:textColor="#fff"
+            android:layout_marginTop="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#fff"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginTop="30dp"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:text="@={viewModel.inputLocation}"
+            android:textColor="#fff"
+            android:hint="Write Your Location"
+            android:textColorHint="#fff"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content" />
+
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Change location"
+            android:onClick="@{() -> viewModel.onClick()}"
+            android:textSize="12sp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/white"
+            android:layout_marginTop="50dp"/>
+
+    </LinearLayout>
+</layout>
